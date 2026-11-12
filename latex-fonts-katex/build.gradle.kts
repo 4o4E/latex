@@ -65,12 +65,8 @@ compose.resources {
 }
 
 mavenPublishing {
-    publishToMavenCentral(true)
-
-    signAllPublications()
-
     coordinates(
-        "io.github.huarangmeng",
+        project.group.toString(),
         "latex-fonts-katex",
         rootProject.version.toString()
     )
@@ -83,7 +79,7 @@ mavenPublishing {
                 "skip it to ship a smaller app and render with system fonts."
         )
         inceptionYear.set("2026")
-        url.set("https://github.com/huarangmeng/latex")
+        url.set("https://github.com/4o4E/latex")
         licenses {
             license {
                 name.set("MIT License")
@@ -99,9 +95,9 @@ mavenPublishing {
             }
         }
         scm {
-            url.set("https://github.com/huarangmeng/latex")
-            connection.set("scm:git:git://github.com/huarangmeng/latex.git")
-            developerConnection.set("scm:git:ssh://git@github.com/huarangmeng/latex.git")
+            url.set("https://github.com/4o4E/latex")
+            connection.set("scm:git:https://github.com/4o4E/latex.git")
+            developerConnection.set("scm:git:ssh://git@github.com/4o4E/latex.git")
         }
     }
 }

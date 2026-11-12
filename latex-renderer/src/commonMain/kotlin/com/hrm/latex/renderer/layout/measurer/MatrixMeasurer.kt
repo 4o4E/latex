@@ -300,7 +300,7 @@ internal class MatrixMeasurer : NodeMeasurer {
             context
         }
 
-        val rows = node.cases.map { listOf(it.second, LatexNode.Text(" if "), it.first) }
+        val rows = node.cases.map { listOf(it.first, LatexNode.Text(" if "), it.second) }
         val matrixLayout = measureMatrixLike(
             rows, contentContext, measurer, density, measureNode,
             alignments = listOf(ColumnAlignment.LEFT, ColumnAlignment.CENTER, ColumnAlignment.LEFT)

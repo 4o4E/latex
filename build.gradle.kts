@@ -1,3 +1,5 @@
+import org.gradle.api.publish.PublishingExtension
+
 plugins {
     // this is necessary to avoid the plugins to be loaded multiple times
     // in each subproject's classloader
@@ -13,4 +15,26 @@ plugins {
     alias(libs.plugins.mavenPublish) apply false
 }
 
-version = providers.gradleProperty("VERSION").getOrElse("0.0.0-SNAPSHOT")
+version = "1.7.2-java11.2-SNAPSHOT"
+
+allprojects {
+    group = "top.e404.latex"
+    version = rootProject.version
+}
+
+subprojects {
+    pluginManager.withPlugin("com.vanniktech.maven.publish") {
+        extensions.configure<PublishingExtension> {
+            repositories {
+                maven {
+                    name = "nexus"
+                    url = uri("https://nexus.e404.top:3443/repository/maven-snapshots/")
+                    credentials {
+                        username = providers.gradleProperty("nexus.username").orNull
+                        password = providers.gradleProperty("nexus.password").orNull
+                    }
+                }
+            }
+        }
+    }
+}

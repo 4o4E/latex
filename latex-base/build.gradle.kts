@@ -71,11 +71,7 @@ kotlin {
 }
 
 mavenPublishing {
-    publishToMavenCentral(true)
-
-    signAllPublications()
-
-    coordinates("io.github.huarangmeng", "latex-base", rootProject.version.toString())
+    coordinates(project.group.toString(), "latex-base", rootProject.version.toString())
 
     pom {
         name.set("Kotlin Multiplatform LaTeX Rendering Engine")
@@ -88,7 +84,7 @@ mavenPublishing {
             - Multi-module architecture (base/parser/renderer)
         """.trimIndent())
         inceptionYear.set("2026")
-        url.set("https://github.com/huarangmeng/latex")
+        url.set("https://github.com/4o4E/latex")
         licenses {
             license {
                 name.set("MIT License")
@@ -104,9 +100,9 @@ mavenPublishing {
             }
         }
         scm {
-            url.set("https://github.com/huarangmeng/latex")
-            connection.set("scm:git:git://github.com/huarangmeng/latex.git")
-            developerConnection.set("scm:git:ssh://git@github.com/huarangmeng/latex.git")
+            url.set("https://github.com/4o4E/latex")
+            connection.set("scm:git:https://github.com/4o4E/latex.git")
+            developerConnection.set("scm:git:ssh://git@github.com/4o4E/latex.git")
         }
     }
 }

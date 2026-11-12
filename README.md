@@ -501,6 +501,12 @@ LaTeX modules. KaTeX fonts require a release containing `latex-fonts-katex`.
 
 Published JVM libraries target Java 11 bytecode and JDK APIs. Building this repository still uses JDK 21.
 
+This fork's `build/nexus-java11` branch publishes `top.e404.latex` version
+`1.7.2-java11.2-SNAPSHOT` to `https://nexus.e404.top:3443/repository/maven-snapshots/`.
+For JVM servers, `JvmLatexRenderer.create()` loads the bundled font module explicitly;
+`renderSvg(source, config)` returns SVG bytes, dimensions, and the measured baseline without a window or Composition.
+Include both `latex-renderer` and `latex-fonts-katex`. Invalid formulas and missing fonts fail explicitly.
+
 Add to `gradle/libs.versions.toml`:
 
 ```toml

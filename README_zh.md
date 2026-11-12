@@ -494,6 +494,12 @@ Kotlin 2.1 项目请固定使用最后的兼容版本，或升级工具链后跟
 
 发布的 JVM 库以 Java 11 字节码和 JDK API 为目标；构建本仓库仍使用 JDK 21。
 
+本 fork 的 `build/nexus-java11` 分支向 `https://nexus.e404.top:3443/repository/maven-snapshots/`
+发布 `top.e404.latex` 下的 `1.7.2-java11.2-SNAPSHOT` 制品。
+JVM 服务端使用 `JvmLatexRenderer.create()` 显式加载字体，再由 `renderSvg(source, config)`
+获得 SVG 字节、尺寸和真实基线，整个过程不创建窗口或 Composition。
+同时引入 `latex-renderer` 与 `latex-fonts-katex`；无效公式和字体缺失均直接报错。
+
 在 `gradle/libs.versions.toml` 中添加：
 
 ```toml
